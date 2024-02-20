@@ -5,7 +5,6 @@ package com.bbva.creditservice.entity;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -35,6 +34,5 @@ public class Client {
 	@Column(unique=true)
 	private Integer dni;
 	@OneToMany(mappedBy="client",fetch=FetchType.LAZY,cascade=CascadeType.ALL)
-	@JsonManagedReference
 	private List<Credit> creditos;
 }

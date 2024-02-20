@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
 
-import com.bbva.creditservice.dto.PaymentDTO;
-import com.bbva.creditservice.dto.PaymentMapper;
+import com.bbva.creditservice.dto.post.CreatePaymentDTO;
+import com.bbva.creditservice.dto.post.CreatePaymentMapper;
 import com.bbva.creditservice.entity.Credit;
 import com.bbva.creditservice.entity.Payment;
 import com.bbva.creditservice.repository.IPaymentRepository;
@@ -18,11 +18,11 @@ public class PaymentServiceImp implements IPaymentService{
 	@Autowired
 	private IPaymentRepository paymentRepository;
 	@Autowired
-	private PaymentMapper paymentMapper;
+	private CreatePaymentMapper paymentMapper;
 	@Autowired
 	private ICreditService creditService;
 	@Override
-	public PaymentDTO createNewPayment(PaymentDTO paymentDTO) {
+	public CreatePaymentDTO createNewPayment(CreatePaymentDTO paymentDTO) {
 		
 		Payment payment =paymentMapper.paymentDTOtoPayment(paymentDTO);
 		Credit credit =creditService.buscarCredito(paymentDTO.getCredit_id());

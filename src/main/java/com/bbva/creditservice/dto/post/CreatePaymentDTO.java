@@ -1,4 +1,4 @@
-package com.bbva.creditservice.dto;
+package com.bbva.creditservice.dto.post;
 
 import java.util.Date;
 
@@ -11,7 +11,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class PaymentDTO {
+public class CreatePaymentDTO {
 	
 	private Long credit_id;
 	private Date payment_date;

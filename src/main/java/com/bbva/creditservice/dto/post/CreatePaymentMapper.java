@@ -1,4 +1,4 @@
-package com.bbva.creditservice.dto;
+package com.bbva.creditservice.dto.post;
 
 
 
@@ -7,8 +7,8 @@ import org.mapstruct.ReportingPolicy;
 
 import com.bbva.creditservice.entity.Payment;
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = "spring") 
-public interface PaymentMapper {
-	PaymentDTO paymentToPaymentDTO(Payment payment);
+public interface CreatePaymentMapper {
+	CreatePaymentDTO paymentToPaymentDTO(Payment payment);
 
-    Payment paymentDTOtoPayment(PaymentDTO paymentDTO);
+    Payment paymentDTOtoPayment(CreatePaymentDTO paymentDTO);
 }

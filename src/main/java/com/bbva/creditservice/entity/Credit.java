@@ -1,7 +1,6 @@
 package com.bbva.creditservice.entity;
 
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -40,7 +39,6 @@ public class Credit {
 	
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name="client_id")
-	@JsonBackReference
 	private Client client;
 	
 	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)

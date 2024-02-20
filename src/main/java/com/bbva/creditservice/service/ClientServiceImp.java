@@ -6,9 +6,10 @@ package com.bbva.creditservice.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import com.bbva.creditservice.dto.ClientDTO;
-import com.bbva.creditservice.dto.ClientMapper;
+import com.bbva.creditservice.dto.get.ClientGetDTO;
+import com.bbva.creditservice.dto.get.ClientGetMapper;
 import com.bbva.creditservice.entity.Client;
 import com.bbva.creditservice.repository.IClientRepository;
 
@@ -19,16 +20,17 @@ public class ClientServiceImp implements IClientService{
 private IClientRepository clientRepository;
 
 @Autowired
-private ClientMapper clientMapper;
+private ClientGetMapper clientGetMapper;
 
+	@Transactional
 	@Override
-	public ClientDTO buscarCliente(Long id) { //ClientDTO
+	public ClientGetDTO buscarCliente(Long id) { //ClientDTO
 		Client client=clientRepository.findById(id).orElse(null);
 		if(client==null) {
 			return null;
 		}
-		ClientDTO clientDTO =clientMapper.clientToClientDto(client);
-		return clientDTO;
+		ClientGetDTO clientGetDTO =clientGetMapper.clientToClientGetDto(client);
+		return clientGetDTO;
 	}
 
 	@Override

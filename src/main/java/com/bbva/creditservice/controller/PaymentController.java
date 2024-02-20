@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bbva.creditservice.dto.PaymentDTO;
+import com.bbva.creditservice.dto.post.CreatePaymentDTO;
 import com.bbva.creditservice.service.IPaymentService;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -26,9 +26,9 @@ private IPaymentService paymentService;
  
 	@Operation(summary = "GENERAR UN NUEVO PAGO A UN CREDITO")
 	@PostMapping("/pagos")
-	public ResponseEntity<?> RealizarPago(@RequestBody PaymentDTO paymentDTO){
+	public ResponseEntity<?> RealizarPago(@RequestBody CreatePaymentDTO paymentDTO){
 		Map<String,Object> response =new HashMap<>();
-		PaymentDTO paymentDTONew =paymentService.createNewPayment(paymentDTO);
+		CreatePaymentDTO paymentDTONew =paymentService.createNewPayment(paymentDTO);
 			if(paymentDTONew==null) {
 			    response.put("mensaje", "credito no encontrado, porfavor digite un credito correcto a pagar");
 				return new ResponseEntity<Map<String,Object>>(response,HttpStatus.CREATED);

@@ -1,4 +1,5 @@
-package com.bbva.creditservice.dto;
+package com.bbva.creditservice.dto.post;
+
 
 
 
@@ -11,14 +12,14 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreditDTO {
+public class CreateCreditDTO {
 	private float amount;
 	private Double request_interest_rate;
 	private String currency;
 	private String type_credit;
 	private String initial_date;
 	private String months;
-	private ClientDTO client;
+	private CreateClientDTO client;
 	
 }
 

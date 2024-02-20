@@ -1,4 +1,4 @@
-package com.bbva.creditservice.dto;
+package com.bbva.creditservice.dto.get;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
@@ -6,10 +6,8 @@ import org.mapstruct.ReportingPolicy;
 import com.bbva.creditservice.entity.Client;
 
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = "spring")
-public interface ClientMapper {
-
-
-    ClientDTO clientToClientDto(Client client);
-
-    Client clientDtoClient(ClientDTO clientDTO);
+public interface ClientGetMapper {
+	ClientGetDTO clientToClientGetDto(Client client);
+	Client clientGetDtoClient (ClientGetDTO ClientGettDTO);
+	
 }

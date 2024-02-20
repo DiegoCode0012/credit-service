@@ -1,9 +1,9 @@
 package com.bbva.creditservice.service;
 
 
-import com.bbva.creditservice.dto.PaymentDTO;
+import com.bbva.creditservice.dto.post.CreatePaymentDTO;
 
 public interface IPaymentService {
 
-	public PaymentDTO createNewPayment(PaymentDTO payment);
+	public CreatePaymentDTO createNewPayment(CreatePaymentDTO payment);
 }

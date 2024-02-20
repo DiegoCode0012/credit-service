@@ -7,8 +7,8 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bbva.creditservice.dto.CreditDTO;
-import com.bbva.creditservice.dto.CreditMapper;
+import com.bbva.creditservice.dto.post.CreateCreditDTO;
+import com.bbva.creditservice.dto.post.CreateCreditMapper;
 import com.bbva.creditservice.entity.Account;
 import com.bbva.creditservice.entity.Client;
 import com.bbva.creditservice.entity.Credit;
@@ -21,13 +21,13 @@ public class CreditServiceImp implements ICreditService{
 	private ICreditRepository creditRepository;
 
 	@Autowired
-	private CreditMapper credditMapper;
+	private CreateCreditMapper credditMapper;
 	
 
 	@Autowired
 	private IClientService serviceClient;
 	@Override
-	public CreditDTO solicitarCredito(CreditDTO creditDTO) {
+	public CreateCreditDTO solicitarCredito(CreateCreditDTO creditDTO) {
 		Credit credit=credditMapper.creditDtoCredit(creditDTO); //convertimos el DTO de entrada al enttity
 		Integer dni=credit.getClient().getDni();
 		Client 	cliente=serviceClient.buscarxDni(dni);
@@ -52,7 +52,7 @@ public class CreditServiceImp implements ICreditService{
 	}
 
 	@Override
-	public List<CreditDTO> listarCreditoDelCliente(Long id) {
+	public List<CreateCreditDTO> listarCreditoDelCliente(Long id) {
 		List<Credit>creditos=creditRepository.findAll();
 		return creditos.stream().filter(x->x.getClient().getClient_id()==id).map(credditMapper::creditToCreditDTO).collect(Collectors.toList());
 	}
